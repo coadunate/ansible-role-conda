@@ -1,2 +1,16 @@
 ---
 # tasks file for ansible-role-conda
+
+- name: Ensure that the software folder already exists
+  file: path={{ ansible_env.PWD }}/software state=directory mode=0777
+
+- name: Download the Miniconda3-latest-Linux-x86_64
+  get_url:
+      url: https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+      dest: "{{ ansible_env.PWD }}/software/miniconda.sh"
+
+- name: Install Miniconda
+  command: bash "{{ ansible_env.PWD }}/software/miniconda.sh" -b -p "{{ ansible_env.PWD }}/software/miniconda"
+
+- name: Add miniconda to the PATH
+  shell: echo export PATH={{ ansible_env.PWD }}/software/miniconda/:$PATH >> {{ ansible_env.PWD }}/.bashrc
