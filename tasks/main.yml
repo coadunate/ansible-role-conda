@@ -13,4 +13,4 @@
   command: bash "{{ ansible_env.PWD }}/software/miniconda.sh" -b -p "{{ ansible_env.PWD }}/software/miniconda"
 
 - name: Add miniconda to the PATH
-  shell: echo export PATH={{ ansible_env.PWD }}/software/miniconda/:$PATH >> {{ ansible_env.PWD }}/.bashrc
+  shell: echo export PATH={{ ansible_env.PWD }}/software/miniconda/bin:$PATH >> {{ ansible_env.PWD }}/.bashrc
