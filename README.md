@@ -16,7 +16,7 @@ N/a
 Dependencies
 ------------
 
-- (coadunate.devtools)[https://github.com/coadunate/ansible-role-devtools.git]
+- [coadunate.devtools](https://github.com/coadunate/ansible-role-devtools) 
 
 Example Playbook
 ----------------
